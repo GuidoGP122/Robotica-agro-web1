@@ -4,58 +4,395 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curso de Robótica Móvil para el Agro</title>
+  <!-- Font Awesome para íconos -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===========================
+       1. Hero Section (Encabezado principal)
+       =========================== */
+    .hero {
+      background: linear-gradient(rgba(46,125,50,0.7), rgba(0,0,0,0.5)), url('https://placehold.co/1200x400?text=Robot+en+el+Agro') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem 3rem 1rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+    .hero .cta-btn {
+      background: #ff9800;
+      color: #fff;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .hero .cta-btn:hover {
+      background: #f57c00;
+    }
+
+    /* ===========================
+       2. Main Container
+       =========================== */
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    h2 {
+      color: #2e7d32;
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    /* ===========================
+       3. Contenidos del Curso con Íconos
+       =========================== */
+    .course-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .content-item {
+      background: #e8f5e9;
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(46,125,50,0.08);
+      transition: transform 0.2s;
+    }
+    .content-item:hover {
+      transform: translateY(-8px) scale(1.03);
+    }
+    .content-item i {
+      font-size: 2.5rem;
+      color: #2e7d32;
+      margin-bottom: 0.7rem;
+    }
+    .content-item h3 {
+      color: #2e7d32;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* ===========================
+       4. Testimonios
+       =========================== */
+    .testimonials {
+      background: #fffde7;
+      padding: 2rem 1rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+    .testimonial {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #2e7d32;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: #555;
+    }
+    .testimonial-name {
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    /* ===========================
+       5. Galería de Imágenes/Videos
+       =========================== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .gallery img, .gallery video {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: transform 0.2s;
+    }
+    .gallery img:hover, .gallery video:hover {
+      transform: scale(1.04);
+    }
+
+    /* ===========================
+       6. Beneficios con Íconos
+       =========================== */
+    .benefits-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .benefit-item {
+      background: #f1f8e9;
+      border-left: 5px solid #43a047;
+      padding: 1.2rem;
+      border-radius: 8px;
+      width: 250px;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .benefit-item i {
+      font-size: 2rem;
+      color: #43a047;
+      margin-top: 0.2rem;
+    }
+    .benefit-item span {
+      font-weight: 500;
+    }
+
+    /* ===========================
+       7. Formulario de Contacto
+       =========================== */
+    .contact-form {
+      background: #e3f2fd;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+    }
+    .contact-form label {
+      font-weight: bold;
+      color: #1976d2;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border: 1px solid #90caf9;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .contact-form button {
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: #0d47a1;
+    }
+
+    /* ===========================
+       8. Animaciones Suaves al Hacer Scroll
+       =========================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s, transform 0.7s;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===========================
+       9. Responsive
+       =========================== */
+    @media (max-width: 600px) {
+      main {
+        padding: 1rem;
+      }
+      .course-content, .benefits-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+  <!-- Script para animaciones al hacer scroll -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function revealOnScroll() {
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 50) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
 </head>
 <body>
+  <!-- ===========================
+       1. Hero Section (Encabezado principal)
+       =========================== -->
   <header class="hero">
     <h1>Curso de Robótica Móvil para el Agro</h1>
     <p>¡Aprende desde cero a aplicar la robótica móvil en el sector agrícola!</p>
     <button class="cta-btn">Inscríbete ahora</button>
   </header>
-
-  <main class="main-container">
-    <section>
-      <h2>Descripción</h2>
-      <p>Este curso te introduce a la robótica móvil enfocada en aplicaciones agropecuarias. No necesitas conocimientos previos, solo curiosidad por la tecnología y ganas de transformar el agro.</p>
+  <main>
+    <!-- ===========================
+         2. Descripción del Curso
+         =========================== -->
+    <section class="fade-in">
+      <h2>Descripción del Curso</h2>
+      <p>
+        Este curso está diseñado para personas sin conocimientos previos en robótica o tecnología. Aprenderás de manera práctica y sencilla cómo la robótica móvil puede transformar el trabajo en el campo, optimizando procesos y mejorando la productividad agrícola.
+      </p>
     </section>
-
-    <section>
-      <h2>Actividades del Curso</h2>
-      <div class="activity-gallery">
-        <figure>
-          <img src="img/sesiones.jpg" alt="Sesiones Teóricas">
-          <figcaption>Sesiones teóricas interactivas</figcaption>
-        </figure>
-        <figure>
-          <img src="img/montaje.jpg" alt="Montaje y programación">
-          <figcaption>Montaje y programación de robots</figcaption>
-        </figure>
-        <figure>
-          <img src="img/perro-lego.png" alt="LEGO perro robot">
-          <figcaption>LEGO: montaje de un perro-robot de pastoreo</figcaption>
-        </figure>
-        <figure>
-          <img src="img/simulacion.jpg" alt="Simulación de campo">
-          <figcaption>Simulaciones de campo</figcaption>
-        </figure>
+    <!-- ===========================
+         3. Contenidos del Curso con Íconos
+         =========================== -->
+    <section class="fade-in">
+      <h2>Contenidos del Curso</h2>
+      <div class="course-content">
+        <div class="content-item">
+          <i class="fas fa-tractor"></i>
+          <h3>Robótica en el Agro</h3>
+          <p>Introducción y aplicaciones reales en el campo.</p>
+        </div>
+        <div class="content-item">
+          <i class="fas fa-microchip"></i>
+          <h3>Componentes Básicos</h3>
+          <p>Conoce las partes esenciales de un robot móvil.</p>
+        </div>
+        <div class="content-item">
+          <i class="fas fa-satellite-dish"></i>
+          <h3>Sensores y Actuadores</h3>
+          <p>Cómo los robots perciben y actúan en su entorno.</p>
+        </div>
+        <div class="content-item">
+          <i class="fas fa-code"></i>
+          <h3>Programación Fácil</h3>
+          <p>Aprende a programar robots desde cero.</p>
+        </div>
+        <div class="content-item">
+          <i class="fas fa-seedling"></i>
+          <h3>Aplicaciones Prácticas</h3>
+          <p>Siembra, monitoreo y cosecha automatizada.</p>
+        </div>
+        <div class="content-item">
+          <i class="fas fa-award"></i>
+          <h3>Proyectos y Casos</h3>
+          <p>Ejemplos y proyectos exitosos en el agro.</p>
+        </div>
       </div>
     </section>
-
-    <section>
+    <!-- ===========================
+         4. Actividades (Galería de imágenes/videos)
+         =========================== -->
+    <section class="fade-in">
+      <h2>Actividades</h2>
+      <div class="gallery">
+        <img src="https://placehold.co/300x180?text=Taller+Práctico" alt="Taller práctico">
+        <img src="https://placehold.co/300x180?text=Simulación+Virtual" alt="Simulación virtual">
+        <video src="https://www.w3schools.com/html/mov_bbb.mp4" controls poster="https://placehold.co/300x180?text=Video+Robot"></video>
+        <img src="https://placehold.co/300x180?text=Proyecto+Final" alt="Proyecto final">
+      </div>
+      <ul>
+        <li>Clases teóricas y demostraciones en video</li>
+        <li>Talleres prácticos con kits de robótica (opcional)</li>
+        <li>Simulaciones virtuales de robots en el campo</li>
+        <li>Desarrollo de un proyecto final aplicado al agro</li>
+        <li>Foros y sesiones de preguntas en vivo</li>
+      </ul>
+    </section>
+    <!-- ===========================
+         5. Testimonios
+         =========================== -->
+    <section class="testimonials fade-in">
+      <h2>Testimonios</h2>
+      <div class="testimonial">
+        <img src="https://placehold.co/60x60?text=Ana" alt="Ana">
+        <div>
+          <div class="testimonial-text">"Nunca imaginé que podría programar un robot. Ahora aplico lo aprendido en mi finca."</div>
+          <div class="testimonial-name">Ana G., Productora Rural</div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <img src="https://placehold.co/60x60?text=Luis" alt="Luis">
+        <div>
+          <div class="testimonial-text">"El curso es muy práctico y los tutores siempre están atentos a ayudar."</div>
+          <div class="testimonial-name">Luis M., Estudiante</div>
+        </div>
+      </div>
+    </section>
+    <!-- ===========================
+         6. Beneficios con Íconos
+         =========================== -->
+    <section class="fade-in">
+      <h2>Beneficios</h2>
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <i class="fas fa-user-graduate"></i>
+          <span>Sin requisitos previos: pensado para principiantes absolutos.</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-hands-on"></i>
+          <span>Enfoque práctico: aprende haciendo, con ejemplos reales.</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-certificate"></i>
+          <span>Certificado de participación al finalizar el curso.</span>
+        </div>
+        <div class="benefit-item">
+          <i class="fas fa-users"></i>
+          <span>Soporte y acompañamiento de tutores y comunidad.</span>
+        </div>
+      </div>
+    </section>
+    <!-- ===========================
+         7. Formulario de Contacto
+         =========================== -->
+    <section class="fade-in">
       <h2>Contacto</h2>
-      <form class="formulario">
-        <input type="text" placeholder="Tu nombre" required>
-        <input type="email" placeholder="Tu correo electrónico" required>
-        <textarea rows="4" placeholder="Tu mensaje" required></textarea>
-        <button type="submit">Enviar</button>
+      <form class="contact-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        
+        <button type="submit">Enviar consulta</button>
       </form>
     </section>
   </main>
-
-  <footer>
-    <p>&copy; 2025 Curso de Robótica Móvil para el Agro</p>
-  </footer>
 </body>
 </html>
